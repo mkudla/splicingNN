@@ -87,6 +87,7 @@ htnn14bi<-tnn14bi %>% fit(
 
 tnet_test14bi<-tnn14bi %>% predict(list(get(paste0(label,".test.x.OH")), get(paste0(label,".test.x.OH.struct"))))
 
+#comparing performance for sequence only versus 
 plot(ReturnTPRFPRArrayBounded(tnet_test9, get(paste0(label,".test.y")), minx=-0.5,maxx=1.5)[,2:3],xlim=c(0,1),ylim=c(0,1),type='l',xlab="FPR",ylab="TPR",col="black", main= "ROC")
 lines(ReturnTPRFPRArrayBounded(tnet_test14bi, get(paste0(label,".test.y")), minx=-0.5,maxx=1.5)[,2:3],xlim=c(0,1),ylim=c(0,1),type='l',xlab="FPR",ylab="TPR",col="lightgreen", main = "ROC")
 abline(b=1,a=0)
